@@ -1,0 +1,6 @@
+<h1>글쓰기</h1>
+<%= form_tag "/posts/update/#{@post.id}", method: "posts" do %>
+    <%= text_field_tag :title, @post.title, style: "width: 400px; height: 50px" %><br><br>
+    <%= text_area_tag :content, @post.content, style: "width: 400px; height: 100px" %><br>
+    <%= submit_tag '작성' %>
+<% end %>
