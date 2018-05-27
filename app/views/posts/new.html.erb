@@ -1,6 +1,6 @@
 <h1>글쓰기</h1>
-<%= form_tag '/posts/create', method: "posts" do %>
-    <%= text_field_tag :title, nil, placeholder: "제목을 입력해주세요", style: "width: 400px; height: 50px" %><br><br>
-    <%= text_area_tag :content, nil, placeholder: "내용을 입력해주세요", style: "width: 400px; height: 100px" %><br>
-    <%= submit_tag '작성' %>
+<%= form_for @post, url: '/posts/create' do |f| %>
+    <%= f.text_field :title, placeholder: "제목을 입력해주세요", style: "width: 400px; height: 50px" %><br><br>
+    <%= f.text_area :content, placeholder: "내용을 입력해주세요", style: "width: 400px; height: 100px" %><br>
+    <%= f.submit '작성' %>
 <% end %>

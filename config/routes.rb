@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'posts/edit/:id' => 'posts#edit'
 
-  post 'posts/update/:id' => 'posts#update'
+  patch 'posts/update/:id' => 'posts#update'
 
   get 'posts/destroy/:id' => 'posts#destroy'
 

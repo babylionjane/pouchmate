@@ -4,10 +4,14 @@ class PostsController < ApplicationController
   end
   
   def new
+    @post = Post.new
   end
 
   def create
-    Post.create(title: params[:title], content: params[:content])
+    post = Post.new
+    post.title = params[:post][:title]
+    post.content = params[:post][:content]
+    post.save
     redirect_to '/'
   end
 
@@ -16,7 +20,10 @@ class PostsController < ApplicationController
   end
 
   def update
-    Post.find(params[:id]).update(title: params[:title], content: params[:content])
+    post = Post.find(params[:id])
+    post.title = params[:post][:title]
+    post.content = params[:post][:content]
+    post.save
     redirect_to '/'
   end
 
