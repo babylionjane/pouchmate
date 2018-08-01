@@ -13,3 +13,458 @@
  *= require_tree .
  *= require_self
  */
+ 기분전환용글씨체
+@font-face { font-family: 'WONDotum'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/WONDotum.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Arita-dotum-Medium'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-dotum-Medium.woff') format('woff'); font-weight: normal; font-style: normal; }
+ *{
+   font-family: 'Arita-dotum-Medium';
+ }
+ 
+.carousel-control-next, .carousel-control-prev {
+   width: 5%;
+}
+.wrapper{
+    width: 450px;
+    height: 660px;
+    /*background-color: pink;*/
+    margin: 30px auto;
+    border-radius: 15px;
+}
+.logintop{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 30%;
+	width: 60%;
+	/*background-color: blue;*/
+	box-sizing: border-box;
+	margin: 0 auto;
+}
+.loginbottom{
+  height: 50%;
+  width: 80%;
+	box-sizing: border-box;
+	margin: 0 auto;
+}
+.innerbox{
+  background-color: #E6FFFF;
+  border-radius: 5px;
+  box-shadow: 5px 10px 18px #888888;
+}
+.stick{
+	width: 60%;
+	height: 5px;
+	background-color: #E6FFFF;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+.icon {
+	/*background-color: blue;*/
+	width: 45px;
+	height: 39px;
+	border-radius: 5px;
+}
+.field{
+	display: flex;
+	justify-content: center;
+}
+.a{
+	display: flex;
+	justify-content: space-around;
+}
+.logbox{
+  width: 70%;
+  height: 39px;
+}
+.linkss{
+  text-align: center;
+}
+
+.arrow-up {
+  /*margin: 0;*/
+  /*padding: 0;*/
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 15px solid #e6fdfe;
+  /*left: 10%;*/
+  /*position: absolute;*/
+  /*top: -10px;*/
+  margin: 0 auto;
+}
+
+
+/*요기부터 로그인 재인 테스트*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+#wrap {
+  margin: 0 auto;
+}
+
+/*위nav바*/
+#regbar {
+  height: 67px;
+  background: #333;
+  z-index: 1;
+}
+
+#navthing {
+    padding-top: 1px;
+    position: absolute;
+    right: 10px;
+}
+
+fieldset {
+  border: none;
+}
+
+.login {
+  position: relative;
+  width: 350px;
+  display: none;
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 15px solid #ECF0F1;
+  right: 10%;
+  position: absolute;
+  top: -10px;
+}
+.arrow-up-jane{
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 15px solid #E6FFFF;
+  top: -10px;
+  margin: 0 auto;
+}
+.formholder {
+  background: #ecf0f1;
+  width: 350px;
+  border-radius: 5px;
+  padding-top: 5px;
+  position: absolute;
+  z-index: 1;
+}
+.formholder input[type="email"], .formholder input[type="password"] {
+  padding: 7px 5px;
+  margin: 10px 0;
+  width: 96%;
+  display: block;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  -webkit-transition: 0.3s linear;
+  -moz-transition: 0.3s linear;
+  -o-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+.formholder input[type="email"]:focus, .formholder input[type="password"]:focus {
+  outline: none;
+  box-shadow: 0 0 1px 1px #1abc9c;
+}
+.formholder input[type="submit"] {
+  background: #1abc9c;
+  padding: 10px;
+  font-size: 20px;
+  display: block;
+  width: 100%;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+}
+.formholder input[type="submit"]:hover {
+  background: pink;
+}
+
+.randompad {
+  padding: 10px;
+}
+
+.green {
+  /*color: #1abc9c;*/
+  color: white;
+}
+
+a {
+  color: pink;
+  text-decoration: none;
+}
+a:hover {
+  color: #1abc9c;
+}
+
+.loginandsignup{
+	font-size: 30px;
+  margin: 10px 10px;
+  text-align: right;
+  text-decoration: none;
+}
+
+.loginandsignup a {
+  color: white;
+  text-decoration: none;
+}
+
+.loginandsignup a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+
+/*요기까지*/
+
+
+
+
+
+
+
+/*요기부터는 또 모달 테스트*/
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+  height: 100%;
+  /*background-image: url(http://theartmad.com/wp-content/uploads/Dark-Grey-Texture-Wallpaper-5.jpg);*/
+  background-size: cover;
+  background-position: top center;
+  font-family: helvetica neue, helvetica, arial, sans-serif;
+  font-weight: 200;
+}
+html.modal-active, body.modal-active {
+  overflow: hidden;
+}
+
+#modal-container {
+  position: fixed;
+  display: table;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  z-index: 1;
+}
+
+#modal-container.two {
+  transform: scale(1);
+}
+#modal-container.two .modal-background {
+  background: rgba(0, 0, 0, 0);
+  animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-container.two .modal-background .modal {
+  opacity: 0;
+  animation: scaleUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-container.two + .content {
+  animation: scaleBack 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-container.two.out {
+  animation: quickScaleDown 0s .5s linear forwards;
+}
+#modal-container.two.out .modal-background {
+  animation: fadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-container.two.out .modal-background .modal {
+  animation: scaleDown 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-container.two.out + .content {
+  animation: scaleForward 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-container .modal-background {
+  display: table-cell;
+  background: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  vertical-align: middle;
+}
+#modal-container .modal-background .modal {
+  background: white;
+  padding: 50px;
+  display: inline-block;
+  border-radius: 3px;
+  font-weight: 300;
+  position: relative;
+}
+#modal-container .modal-background .modal h2 {
+  font-size: 25px;
+  line-height: 25px;
+  margin-bottom: 15px;
+}
+#modal-container .modal-background .modal p {
+  font-size: 18px;
+  line-height: 22px;
+}
+#modal-container .modal-background .modal .modal-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+}
+#modal-container .modal-background .modal .modal-svg rect {
+  stroke: #fff;
+  stroke-width: 2px;
+  stroke-dasharray: 778;
+  stroke-dashoffset: 778;
+}
+
+.content {
+  min-height: 100%;
+  height: 100%;
+  background: white;
+  position: relative;
+  z-index: 0;
+  padding: 10px 0px 0px 0px
+}
+.content h1 {
+  padding: 75px 0 30px 0;
+  text-align: center;
+  font-size: 30px;
+  line-height: 30px;
+}
+.content .buttons {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+.content .buttons .button {
+  display: inline-block;
+  text-align: center;
+  /*없어두되는듯*/
+  /*padding: 10px 15px;*/
+  /*margin: 10px;*/
+  /*background: red;*/
+  /*font-size: 18px;*/
+  /*background-color: #efefef;*/
+  /*border-radius: 3px;*/
+  /*box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);*/
+  cursor: pointer;
+}
+.content .buttons .button:hover {
+  color: white;
+  background: pink;
+}
+
+
+@keyframes fadeIn {
+  0% {
+    background: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+@keyframes fadeOut {
+  0% {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0);
+  }
+}
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.8) translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes scaleDown {
+  0% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8) translateY(1000px);
+    opacity: 0;
+  }
+}
+@keyframes scaleBack {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.85);
+  }
+}
+@keyframes scaleForward {
+  0% {
+    transform: scale(0.85);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes quickScaleDown {
+  0% {
+    transform: scale(1);
+  }
+  99.9% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+/*요기까지임*/
+.buttonjane {
+  height: 6vw;
+  left: 50vw;
+  top: 50vh;
+  transform: translate(-50%, -80%);
+  font-family: 'Varela Round', sans-serif;
+  font-size: 2vw;
+  letter-spacing: 0.1em;
+  color: #e8e8e8;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  background: linear-gradient(45deg, #d350db, teal, #d350db);
+  background-size: 400% 400%;
+  box-shadow: 1vw 1vw 0 lightcoral;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.buttonjane:hover {
+  animation: gradient 10s ease infinite;
+  font-size: 2.05vw;
+  box-shadow: 0.2vw 0.2vw 0 lightcoral;
+}
+
+@keyframes gradient {
+  50% {
+    background-position: 100% 0;
+  }
+  
+.friendsandlifetem{
+  align-items: center;
+}
+
+.aaa{
+  width: 300px;
+  height: 32px;
+  display: flex;
+  justify-content: flex-end;
+}

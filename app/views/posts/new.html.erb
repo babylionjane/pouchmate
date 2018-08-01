@@ -1,6 +1,42 @@
-<h1>글쓰기</h1>
-<%= form_for @post, url: '/posts/create' do |f| %>
-    <%= f.text_field :title, placeholder: "제목을 입력해주세요", style: "width: 400px; height: 50px" %><br><br>
-    <%= f.text_area :content, placeholder: "내용을 입력해주세요", style: "width: 400px; height: 100px" %><br>
-    <%= f.submit '작성' %>
-<% end %>
+
+
+<div class='newcosmetic'>
+    <h1>새로운 화장품 등록하기</h1>
+    <%= form_for @post, url: '/posts/create', multipart: true do |f| %>
+        <% if not user_signed_in? %>
+            로그인이 필요합니다.
+        <% else %>
+            <%= f.text_field :title, placeholder: "화장품 이름", style: "width: 400px; height: 50px" %><br><br>
+            <%= f.text_area :memo, placeholder: "메모", style: "width: 400px; height: 50px" %><br>
+            
+            <%= f.label :'종류' %>
+            <%= f.select(:category, options_for_select(
+                [
+                    ["스킨", "스킨"],
+                    ['로션', "로션"],
+                    ['립스틱', "립스틱"],
+                    ['파운데이션', "파운데이션"],
+                ], 4
+            )) %>
+            <br>
+            <%= f.label :'개봉날짜' %>
+            <%= f.date_select :open_date, :use_month_numbers=>true,
+                start_year: Date.today.year-10, end_year: Date.today.year+10, prompt: { year: '연도' , month: '월', day: '일'} %>
+            <br>
+            <%= f.label :'유통기한' %>
+            <%= f.date_select :exp_date, :use_month_numbers=>true,
+                start_year: Date.today.year-10, end_year: Date.today.year+10, prompt: { year: '연도' , month: '월', day: '일'} %>
+            <br>
+            <%= f.label :'공개여부' %>
+                <%= f.radio_button(:public, true, :checked => true) %>
+                <%= label_tag(:public, "공개") %>
+                <%= f.radio_button(:public, false) %>
+                <%= label_tag(:public, "비공개") %>    
+            
+            <%= f.hidden_field :user_id, value: (User.find_by email: current_user.email).id %>
+            
+            <%= f.file_field :image %>
+            <%= f.submit '작성' %>
+        <% end %>
+    <% end %>
+</div>

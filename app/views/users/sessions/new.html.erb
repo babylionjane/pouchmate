@@ -1,0 +1,49 @@
+<div class='wrapper'>
+  
+  <div class="logintop">
+    <div class='stick'></div>
+    <div class='profile'>
+      <img src="/user.png" width="70" height="70"><br>
+      Log In
+    </div>
+    <div class='stick'></div>
+  </div>
+  
+  
+  <div class="loginbottom">
+    <div class='arrow-up-jane'></div>
+    <div class='innerbox'>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <br><br>
+        <div class="field">
+          <div class='icon'></div>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "  email", :class => 'logbox'%>
+        </div><br>
+      
+        <div class="field">
+          <div class='icon'>icon자리</div>
+          <%= f.password_field :password, autocomplete: "off", placeholder: "  password", :class => 'logbox' %>
+        </div><br>
+        
+      <div class='a'>
+        <div class="actions">
+          <%= hidden_field_tag :redirect_to, params[:redirect_to] %>
+          <%= f.submit "Log in", :class => 'btn buttonjane' %>
+        </div>
+        <% if devise_mapping.rememberable? -%>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+      </div>
+      <% end %>
+      
+      <br><br><br>
+      <div class='linkss'>
+        <%= render "users/shared/links" %>
+      </div>
+    </div>
+  </div>
+  
+</div>

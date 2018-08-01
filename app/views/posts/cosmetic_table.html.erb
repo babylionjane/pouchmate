@@ -1,0 +1,268 @@
+<!--카루셀 화장대-->
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval='false'>
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+      
+    <!--page number 1 -->
+    <div class="carousel-item active"> 
+        <div class='firstpage'>
+            <div class='top'>
+                <div class='item left'>
+                    <div class="floor one">
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        
+                    </div>
+                    <div class="floor two">
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        
+                    </div>
+                </div>
+                <div class="item middle"><br><br><br><br>
+                    <div class='aaa'>
+                        <div class='bbb'>
+                            <% if user_signed_in? %>
+                                <a href='/friends/index'><img src='/lifeitem_icon.png'></a>
+                            <% end %>
+                        </div>
+                    </div>
+                    <div class="profile"><img src="/user.png" width="100" height="100"></div><br>
+                    <div class="profile info">
+                        <h1>
+                            <%= @nickname %>
+                        </h1>
+                    </div>
+                    <br>
+                    <div class='friendsandlifetem'>
+                        <% if user_signed_in? %>
+                            <%= link_to(image_tag("/friends_icon.png", :class => "friends_icon", height: '32', width: '32'), @friends_icon, :method => @friends_method) %>
+                            <%= @friends_icon_comment %>
+                        <% end %>
+                    </div>
+                </div>
+                
+                <div class="item right">
+                    <div class="floor three">
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    </div>
+                    <div class="floor four">
+                
+                        <div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div id="modal-container">
+                          <div class="modal-background" >
+                            <div class="modal">
+                                <% @posts.each_with_index do |p,index| %>
+                                    <h3><%=p.title%></h3>
+                                    <p><%=p.memo%></p>
+                                    <img src=<%=p.img_url.hi%>>
+                                    <a href="/posts/edit/<%=p.id%>">[수정]</a><br>
+                                    <a href="/posts/destroy/<%=p.id%>">[삭제]</a><br>
+                                    <svg class="modal-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none">
+                                    <rect x="0" y="0" fill="none" width="226" height="162" rx="3" ry="3"></rect>
+                                    </svg>
+                                <%end%>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="content">
+                          <div class="buttons">
+                            <% @posts.each_with_index do |p,index| %>
+                                <div id='two' class='button div2' ondrop="drop(event)" ondragover="allowDrop(event)">
+                                    <img src=<%=p.img_url.thumb%>>
+                                </div>
+                            <% end %>
+                            <div id="two" class="button"></div>
+                          </div>
+                        </div>
+                        
+                        <!--이 자바스크립트는 모달임-->
+                        <script type='text/javascript'>
+                        $('.button').click(function(){
+                          var buttonId = $(this).attr('id');
+                          $('#modal-container').removeAttr('class').addClass(buttonId);
+                          $('body').addClass('modal-active');
+                        })
+                        
+                        $('#modal-container').click(function(){
+                          $(this).addClass('out');
+                          $('body').removeClass('modal-active');
+                        });
+                        </script>
+                        
+                                                
+                    </div>
+                </div>            
+            </div>
+            <div class="bottom">
+                <div class="floor five">
+                        <% @posts.each_with_index do |p,index| %>
+                            <div class="box boxdrag <%=index%>" ondrop="drop(event)" ondragover="allowDrop(event)">
+                              <a href='posts/indextitle/<%=p.id%>'><img src=<%=p.img_url.thumb%> draggable="true" ondragstart="drag(event)" id="drag<%=index%>"></a>
+                            </div>
+                        <%end%> 
+                </div>
+            </div>
+        </div>
+    </div>      
+      
+    <!--page number 2-->
+    <div class="carousel-item rightside">
+        <div class='firstpage'>
+            <div class='top'>
+                <div class="pageright">
+                    <div class="topright floorside">
+                        <% @posts.each_with_index do |p,index| %>
+                            <div class='box <%=index+1%>'><img src=<%=p.img_url.thumb%>></div>
+                        <% end %>
+                    </div>
+                    <div class="middleright floorside"></div>
+                </div>            
+            </div>
+            
+            <div class="bottom">
+                <div class="bottomright floorside"></div>
+            </div>
+            
+        </div>
+    </div>
+          
+    <!--page number 3-->
+    <div class="carousel-item leftside">
+        <div class='firstpage'>
+            <div class='top'>
+                <div class="pageright">
+                    <div class="topleft floorside">
+                        <% @posts.each_with_index do |p,index| %>
+                            <div class='box <%=index+1%>'><img src=<%=p.img_url.thumb%>></div>
+                        <% end %>
+                    </div>
+                    <div class="middleleft floorside"></div>
+                </div>            
+            </div>
+            
+            <div class="bottom">
+                <div class="bottomleft floorside"></div>
+            </div>
+            
+        </div>
+    </div>    
+  </div>
+  
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" style="width: 5%;">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next" style="width: 5%;">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<!--스크롤하면 bottom nav 투명해지는거 자바스크립트-->
+<script type='text/javascript'>
+    $(document).ready(function() {
+      $(window).scroll(function() {
+        if ($(this).scrollTop() > 0) {
+          $('footer').css('opacity', 0);
+        } else {
+          $('footer').css('opacity', 1);
+        }
+      });
+    });
+</script>
+
+<div class="bottombottomnavbar">
+    <div class='bottomnavhome'><%= link_to "홈", root_path %></div>
+    <div class='bottomnavregister'><%= link_to "등록하기", posts_new_path %></div>
+    <div class='bottomnavmypage'><%= link_to "마이페이지", posts_mypage_path %></div>
+</div>
+
+
+
+
+<p id="notice"><%= notice %></p>
+  <% if user_signed_in? %>
+      <%= current_user.email %>
+      <%= link_to "로그아웃하기", destroy_user_session_path(redirect_to: request.path) %><br>
+  <% else %>
+      <p>당신은 현재 로그인이 필요하군요</p>
+      <%= link_to '로그인', new_user_session_path(redirect_to: request.path) %><br>
+      <%= link_to '회원가입', new_user_registration_path(redirect_to: request.path) %><br>
+<%end%>
+
+<h4>
+    <p>
+        <a href="/posts/new">화장품 등록하기</a>
+    </p>
+    <p>
+        <a href='/posts/janenewmypage'>내 새로운 마이페이지로 고!</a>
+    </p>
+    <p>
+        <%= link_to '내 화장대로 이동하기', posts_cosmetic_table_path %>
+    </p>
+    <p>
+        <a href='/posts/table_move'>다른 사람 화장대 구경하기</a>
+    </p>
+</h4>
+
+<!--드래그앤드롭 예제 해본다 재인-->
+<!DOCTYPE HTML>
+<html>
+  
+<head>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+
+<body>
+<h2>Drag and Drop</h2>
+<p>Drag the image back and forth between the two div elements.</p>
+<% @posts.each_with_index do |p,index| %>
+<div class="boxdrag <%=index%>" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <a href='posts/indextitle/<%=p.id%>'><img src=<%=p.img_url.thumb%> draggable="true" ondragstart="drag(event)" id="drag<%=index%>"></a>
+</div>
+<%end%>
+
+<div class="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+</body>
+</html>
+
+

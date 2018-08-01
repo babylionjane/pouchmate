@@ -1,0 +1,17 @@
+<h1>타인의 화장대로 갈 수 있는 페이지(임시)</h1>
+
+<% if user_signed_in? %>
+  <% for user in User.where.not(id:current_user.id) %>
+    <p>
+      <strong><%= user.nickname %></strong>
+      <%= link_to "화장대 이동하기", posts_cosmetic_table_path(id: user.id) %>
+    </p>
+  <% end %>
+<% else %>
+  <% for user in User.all %>
+    <p>
+      <strong><%= user.nickname %></strong>
+      <%= link_to "화장대 이동하기", posts_cosmetic_table_path(id: user.id) %>
+    </p>
+  <% end %>
+<% end %>
